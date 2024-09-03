@@ -87,6 +87,12 @@ export default function Home() {
         console.log('balance result', balanceRes);
         setBalance(sb.toBitcoin(balanceRes.balance));
       }
+
+      console.log('asking to sign message');
+      const { signedMessage } = await myDoge.requestSignedMessage({
+        message: 'Hello, world!',
+      });
+      console.log('signed message', signedMessage);
     } catch (e) {
       console.error(e);
     }
